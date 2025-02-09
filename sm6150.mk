@@ -95,6 +95,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 $(call soong_config_set,camera,override_format_from_reserved,true)
+$(call soong_config_set,libcameraservice,ext_lib,//$(LOCAL_PATH):libcameraservice_extension.sm6150)
 
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
