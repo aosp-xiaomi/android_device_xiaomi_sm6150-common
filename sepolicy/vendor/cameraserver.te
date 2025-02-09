@@ -1,1 +1,2 @@
 hal_client_domain(cameraserver, hal_motor)
+allow cameraserver sysfs_torch:file rw_file_perms;
