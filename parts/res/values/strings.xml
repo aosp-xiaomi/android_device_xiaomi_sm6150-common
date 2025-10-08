@@ -18,10 +18,6 @@
     <!-- Xiaomi Parts -->
     <string name="app_name">Xiaomi Parts</string>
 
-    <!-- Ambient settings -->
-    <string name="doze_brightness_title">Always on brightness</string>
-    <string name="doze_brightness_summary">%s mode is enabled</string>
-
     <!-- Thermal Profiles -->
     <string name="thermal_title">Thermal profiles</string>
     <string name="thermal_summary">Per-app thermal profile configuration</string>
