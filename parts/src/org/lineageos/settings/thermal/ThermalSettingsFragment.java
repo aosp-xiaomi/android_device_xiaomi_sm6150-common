@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -136,6 +137,20 @@ public class ThermalSettingsFragment
 
     @Override
     public void onRunningStateChanged(boolean running) {}
+
+    @Override
+    public void setDivider(@androidx.annotation.Nullable final Drawable divider) {
+        RecyclerView list = getListView();
+        if (list == null) {
+            View root = getView();
+            if (root != null) {
+                root.post(() -> setDivider(divider));
+            }
+            return;
+        }
+
+        super.setDivider(divider);
+    }
 
     private void handleAppEntries(List<ApplicationsState.AppEntry> entries) {
         final ArrayList<String> sections = new ArrayList<String>();
