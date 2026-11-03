@@ -1,0 +1,13 @@
+# The AOSP composer service has no "pps" socket, but the display
+# post-processing library (libdpps.so) loaded by hwcomposer.qcom takes it
+# from init with android_get_control_socket("pps"). Override the service
+# with the same definition plus the socket Qualcomm's composer rc declares.
+service vendor.hwcomposer-2-4 /vendor/bin/hw/android.hardware.graphics.composer@2.4-service
+    override
+    class hal animation
+    user system
+    group graphics drmrpc
+    capabilities SYS_NICE
+    onrestart restart surfaceflinger
+    task_profiles ServiceCapacityLow
+    socket pps stream 0660 system system
