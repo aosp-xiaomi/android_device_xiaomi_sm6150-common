@@ -1,0 +1,14 @@
+type hall_device, dev_type;
+type motor_device, dev_type;
+
+binder_call(vendor_hal_xiaomi_motor_default, system_app)
+
+allow vendor_hal_xiaomi_motor_default hall_device:chr_file rw_file_perms;
+allow vendor_hal_xiaomi_motor_default motor_device:chr_file rw_file_perms;
+
+allow vendor_hal_xiaomi_motor_default vendor_persist_sensors_file:dir rw_dir_perms;
+allow vendor_hal_xiaomi_motor_default vendor_persist_sensors_file:file rw_file_perms;
+
+allow vendor_hal_xiaomi_motor_default mnt_vendor_file:dir { search };
+
+vndbinder_use(vendor_hal_xiaomi_motor_default)
